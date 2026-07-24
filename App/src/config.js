@@ -7,7 +7,11 @@
 // time, so changing this requires a rebuild (not just a server restart).
 const API_BASE = (
   process.env.REACT_APP_API_URL || 'https://node-social-zmra.onrender.com'
-).replace(/\/+$/, ''); // trim any trailing slash so `${API_BASE}/graphql` is clean
+)
+  .trim()
+  .replace(/[/.]+$/, ''); // strip trailing whitespace/slashes/dots so a stray
+                          // `.../onrender.com.` typo can't cause a TLS-name
+                          // mismatch, and `${API_BASE}/graphql` stays clean
 
 export default API_BASE;
 
