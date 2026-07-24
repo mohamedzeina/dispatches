@@ -22,9 +22,11 @@ const modal = props =>
       <div className="modal__content">{props.children}</div>
 
       <div className="modal__actions">
-        <Button mode="flat" onClick={props.onCancelModal}>
-          Cancel
-        </Button>
+        {!props.hideCancel && (
+          <Button mode="flat" onClick={props.onCancelModal}>
+            Cancel
+          </Button>
+        )}
         <Button
           mode="raised"
           design="accent"

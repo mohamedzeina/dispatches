@@ -11,7 +11,9 @@ const errorHandler = props => (
         title="An Error Occurred"
         onCancelModal={props.onHandle}
         onAcceptModal={props.onHandle}
+        acceptLabel="OK"
         acceptEnabled
+        hideCancel
       >
         <p>{props.error.message}</p>
       </Modal>
