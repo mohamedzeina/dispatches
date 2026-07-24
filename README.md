@@ -2,7 +2,7 @@
 
 A slow-social platform for sharing what you're working on and following your friends. Post a **dispatch** with a title, a few words, and an image; like and reply in nested threads; keep a profile with an avatar and a status. Built on a **GraphQL API** backend and a **React** frontend, secured with JWT authentication — and finished with a warm, hand-built design system (Cohost/Tumblr energy, not another blue-and-white feed).
 
-**Live Demo:** [node-social-chi.vercel.app](https://node-social-chi.vercel.app)  
+**Live Demo:** [dispatches-three.vercel.app](https://dispatches-three.vercel.app)  
 **API:** [node-social-zmra.onrender.com/graphql](https://node-social-zmra.onrender.com/graphql)
 
 ## Table of Contents
