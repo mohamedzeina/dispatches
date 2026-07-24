@@ -185,6 +185,7 @@ Dispatches/
 ├── App/                        # Create React App frontend
 │   └── src/
 │       ├── App.js              # Session, routing, modal-as-route, cross-view sync
+│       ├── config.js           # Single source for the backend API base URL
 │       ├── index.css           # Design system tokens (fonts, colors, shadows, motion)
 │       ├── pages/
 │       │   ├── Auth/           # Login, Signup (with avatar upload)
@@ -255,11 +256,13 @@ Dispatches/
    - Frontend: `http://localhost:3000`
    - GraphiQL: `http://localhost:8080/graphql`
 
-> The frontend currently points at the deployed API URL. To run fully local, update the hardcoded `https://node-social-zmra.onrender.com/graphql` and `/post-image` references in `App/src/` to your local backend.
+> By default the frontend talks to the deployed Render backend. To point it at a local backend, copy `App/.env.example` to `App/.env` and set `REACT_APP_API_URL=http://localhost:8080`, then restart the dev server. The URL resolves once in `App/src/config.js` — no source edits needed.
 
 ---
 
 ## Environment Variables
+
+### Backend (`Backend/`)
 
 The backend reads configuration from a `nodemon.json` file in `Backend/` (gitignored). Create it before starting the server:
 
@@ -282,6 +285,14 @@ The backend reads configuration from a `nodemon.json` file in `Backend/` (gitign
 | `CLOUDINARY_CLOUD_NAME` | Cloudinary cloud name |
 | `CLOUDINARY_API_KEY` | Cloudinary API key |
 | `CLOUDINARY_API_SECRET` | Cloudinary API secret — keep private |
+
+### Frontend (`App/`)
+
+Optional — the frontend defaults to the deployed Render backend if unset (see `App/src/config.js`). Set it in `App/.env` for local dev, or as a project env var on Vercel. Create React App only exposes variables prefixed with `REACT_APP_`, and inlines them at build time, so a change requires a rebuild.
+
+| Variable | Description |
+|---|---|
+| `REACT_APP_API_URL` | Base URL of the backend API, no trailing slash (e.g. `http://localhost:8080`). Defaults to the deployed Render URL. |
 
 ---
 
