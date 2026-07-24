@@ -7,8 +7,7 @@ import PostSkeleton from '../../components/Skeleton/PostSkeleton';
 import ErrorHandler from '../../components/ErrorHandler/ErrorHandler';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import './Profile.css';
-
-const API_URL = 'https://node-social-zmra.onrender.com/graphql';
+import { GRAPHQL_URL as API_URL } from '../../config';
 
 const formatJoined = (iso) => {
   if (!iso) return null;

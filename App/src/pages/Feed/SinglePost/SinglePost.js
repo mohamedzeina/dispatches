@@ -9,8 +9,7 @@ import CommentComposer from '../../../components/Comment/CommentComposer';
 import ErrorHandler from '../../../components/ErrorHandler/ErrorHandler';
 import { Close, Heart, HeartFilled } from '../../../components/Icons/Icons';
 import './SinglePost.css';
-
-const API_URL = 'https://node-social-zmra.onrender.com/graphql';
+import { GRAPHQL_URL as API_URL } from '../../../config';
 
 /**
  * Single point for GraphQL requests from this component. Centralizes

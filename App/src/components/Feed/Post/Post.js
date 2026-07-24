@@ -4,8 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import Image from '../../Image/Image';
 import { Heart, HeartFilled, Reply, Share, Pencil, Trash } from '../../Icons/Icons';
 import './Post.css';
-
-const API_URL = 'https://node-social-zmra.onrender.com/graphql';
+import { GRAPHQL_URL as API_URL } from '../../../config';
 
 const Post = props => {
   const { id, token, likedByMe = false, likeCount = 0 } = props;

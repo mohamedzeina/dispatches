@@ -8,6 +8,7 @@ import Skeleton from '../../components/Skeleton/Skeleton';
 import ErrorHandler from '../../components/ErrorHandler/ErrorHandler';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { Plus } from '../../components/Icons/Icons';
+import { GRAPHQL_URL, POST_IMAGE_URL } from '../../config';
 import './Feed.css';
 
 class Feed extends Component {
@@ -82,7 +83,7 @@ class Feed extends Component {
         page: page, //Using vairables keyword to pass page as a dynamic variable to the query
       },
     };
-    fetch('https://node-social-zmra.onrender.com/graphql', {
+    fetch(GRAPHQL_URL, {
       method: 'POST',
       headers: {
         Authorization: 'Bearer ' + this.props.token,
@@ -143,7 +144,7 @@ class Feed extends Component {
     if (this.state.editPost) {
       formData.append('oldPath', this.state.editPost.imagePath);
     }
-    fetch('https://node-social-zmra.onrender.com/post-image', {
+    fetch(POST_IMAGE_URL, {
       method: 'PUT',
       headers: {
         Authorization: 'Bearer ' + this.props.token,
@@ -219,7 +220,7 @@ class Feed extends Component {
           };
         }
 
-        return fetch('https://node-social-zmra.onrender.com/graphql', {
+        return fetch(GRAPHQL_URL, {
           method: 'POST',
           body: JSON.stringify(graphqlQuery),
           headers: {
@@ -314,7 +315,7 @@ class Feed extends Component {
         postId: postId,
       },
     };
-    fetch('https://node-social-zmra.onrender.com/graphql', {
+    fetch(GRAPHQL_URL, {
       method: 'POST',
       headers: {
         Authorization: 'Bearer ' + this.props.token,

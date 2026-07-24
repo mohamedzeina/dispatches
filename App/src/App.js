@@ -12,6 +12,7 @@ import SinglePostPage from './pages/Feed/SinglePost/SinglePost';
 import ProfilePage from './pages/Profile/Profile';
 import LoginPage from './pages/Auth/Login';
 import SignupPage from './pages/Auth/Signup';
+import { GRAPHQL_URL, AVATAR_UPLOAD_URL } from './config';
 import './App.css';
 
 class App extends Component {
@@ -52,7 +53,7 @@ class App extends Component {
     const graphqlQuery = {
       query: '{ user { _id name avatarUrl status } }',
     };
-    fetch('https://node-social-zmra.onrender.com/graphql', {
+    fetch(GRAPHQL_URL, {
       method: 'POST',
       headers: {
         Authorization: 'Bearer ' + token,
@@ -129,7 +130,7 @@ class App extends Component {
         password: authData.password,
       },
     };
-    fetch('https://node-social-zmra.onrender.com/graphql', {
+    fetch(GRAPHQL_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -186,7 +187,7 @@ class App extends Component {
         const formData = new FormData();
         formData.append('image', avatarFile);
         const uploadRes = await fetch(
-          'https://node-social-zmra.onrender.com/avatar-upload',
+          AVATAR_UPLOAD_URL,
           { method: 'POST', body: formData }
         );
         const uploadData = await uploadRes.json();
@@ -211,7 +212,7 @@ class App extends Component {
         },
       };
 
-      const res = await fetch('https://node-social-zmra.onrender.com/graphql', {
+      const res = await fetch(GRAPHQL_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(graphqlQuery),
